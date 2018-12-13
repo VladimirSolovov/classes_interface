@@ -24,7 +24,11 @@ class Product extends SuperProduct
 		return $this->price - $this->price * 0.25;
 	}
 	public function getDeliveryPrice(){
-		return $this->delivery;
+		if($this->discount){
+			return $this->delivery = 300;
+		}else{
+			return $this->delivery;
+		}
 	}
 	public function getTotalPrice(){
 		return $this->price + $this->delivery;
