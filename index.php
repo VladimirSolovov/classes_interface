@@ -1,7 +1,7 @@
 <?php
-require_once ('classes/superproduct.php');
-require_once ('classes/product.php');
-require_once ('classes/food.php');
-require_once ('classes/weels.php');
-require_once ('classes/tech.php');
+require_once 'classes/autoloader.php';
+$obj2 = new $class($title,$price,$countryFrom,$weight); 
+echo $obj2->getInfoProduct();
+echo $obj2->getPrice();
+
 ?>
