@@ -8,11 +8,13 @@ class Weels extends SuperProduct
 		$this->price = $price;
 		$this->size = $size;
 	}
+		public function getDiscount(){
+		return $this->discount;
+	}
 	public function getInfoProduct()
 	{
 		$info = '<strong>' . $this->title . '</strong>
-		<small><p>Размер:' . $this->size . '</p></small>
-		<br><small><p>Цена:' . $this->price . '</p></small>';
+		<small><p>Размер:' . $this->size . '</p></small>';
 		return $info;
 	}
 	

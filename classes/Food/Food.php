@@ -11,13 +11,14 @@ class Food extends SuperProduct
 		$this->countryFrom = $countryFrom;
 		$this->weight = $weight;
 	}
-
+	public function getDiscount(){
+		return $this->discount;
+	}
 	public function getInfoProduct()
 	{
 		$info = '<strong>' . $this->title . '</strong>
 		<small><p>Страна происхождения:' . $this->countryFrom . '</p></small>' .
-		'<br><small><p>Вес:' . $this->weight . '</p></small>
-		<br><small><p>Цена:' . $this->price . '</p></small>';
+		'<small><p>Вес:' . $this->weight . '</p></small>';
 		return $info;
 	}
 
