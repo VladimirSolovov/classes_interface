@@ -7,17 +7,19 @@ class Product extends SuperProduct
 		return $this->discount;
 	}
 	public function getDiscountPrice(){
-		return $this->price - $this->price * 0.25;
+		return $this->price - ($this->price * 0.25);
+	}else{
+		return $this->price;
 	}
 	public function getDeliveryPrice(){
 		if($this->discount){
-			return $this->delivery = 300;
+			$this->delivery = 300;
 		}else{
 			return $this->delivery;
 		}
 	}
 	public function getTotalPrice(){
-		return $this->price + $this->delivery;
+		return $this->getDiscountPrice() + $this->getDeliveryPrice();
 	}
 }
 ?>
