@@ -10,8 +10,10 @@ class Food extends SuperProduct
 		$this->price = $price;
 		$this->countryFrom = $countryFrom;
 		$this->weight = $weight;
+		$this->setDiscount();
 	}
-	public function getDiscount(){
+	public function getDiscount()
+	{
 		return $this->discount;
 	}
 	public function getInfoProduct()
@@ -21,16 +23,24 @@ class Food extends SuperProduct
 		'<small><p>Вес:' . $this->weight . '</p></small>';
 		return $info;
 	}
-
-	public function getDiscountPrice(){
-		return $this->price;
+    public function setDiscount()
+    { 
+    if ($this->weight <= 10) 
+      return $this->discount = 0;
+    }
+    public function getDiscountPrice() 
+    { 
+    if ($this->weight > 10)
+    {
+    	return $this->getDiscountPrice();
+    } else return $this->price;
+    }
+	public function getDeliveryPrice()
+	{
+		return $this->delivery;
 	}
-
-	public function getDeliveryPrice(){
-		return $this->price;
-	}
-
-	public function getTotalPrice(){
+	public function getTotalPrice()
+	{
 		return $this->getDeliveryPrice() + $this->getDiscountPrice();
 	}
 }

@@ -18,7 +18,8 @@ class Tech extends SuperProduct
 	{
 		$info = '<strong>' . $this->title . '</strong>
 		<small><p>Модель:' . $this->model . '</p></small>'.
-		'<small><p>Вес:' . $this->weight . '</p></small>';
+		'<small><p>Вес:' . $this->weight . '</p></small>
+		<small><p>Цена:' . $this->price . '</p></small>';
 		return $info;
 	}
 
@@ -27,7 +28,7 @@ class Tech extends SuperProduct
 	}
 
 	public function getDeliveryPrice(){
-		return $this->price;
+		return $this->delivery;
 	}
 
 	public function getTotalPrice(){
