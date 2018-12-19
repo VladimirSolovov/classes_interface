@@ -1,5 +1,5 @@
 <?php
-class Food extends SuperProduct
+class Food extends Product
 {
 	protected $countryFrom;
 	private $weight;
@@ -12,15 +12,11 @@ class Food extends SuperProduct
 		$this->weight = $weight;
 		$this->setDiscount();
 	}
-	public function getDiscount()
-	{
-		return $this->discount;
-	}
 	public function getInfoProduct()
 	{
 		$info = '<strong>' . $this->title . '</strong>
 		<small><p>Страна происхождения:' . $this->countryFrom . '</p></small>' .
-		'<small><p>Вес:' . $this->weight . '</p></small>';
+		'<small><p>Вес:' . $this->weight . ' кг. (цена указана за кг.)</p></small>';
 		return $info;
 	}
     public function setDiscount()
@@ -32,13 +28,10 @@ class Food extends SuperProduct
     { 
     if ($this->weight > 10)
     {
-    	return $this->getDiscountPrice();
-    } else return $this->price;
+    	return parent::getDiscountPrice() * $this->weight;
+    } 
+    else return $this->price * $this->weight;
     }
-	public function getDeliveryPrice()
-	{
-		return $this->delivery;
-	}
 	public function getTotalPrice()
 	{
 		return $this->getDeliveryPrice() + $this->getDiscountPrice();

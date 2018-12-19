@@ -1,5 +1,5 @@
 <?php
-class Tech extends SuperProduct
+class Tech extends Product
 {
 	private $model;
 	private $weight;
@@ -10,27 +10,29 @@ class Tech extends SuperProduct
 		$this->price = $price;
 		$this->model = $model;
 		$this->weight = $weight;
-	}
-	public function getDiscount(){
-		return $this->discount;
+		$this->setDiscount();
 	}
 	public function getInfoProduct()
 	{
 		$info = '<strong>' . $this->title . '</strong>
 		<small><p>Модель:' . $this->model . '</p></small>'.
-		'<small><p>Вес:' . $this->weight . '</p></small>
+		'<small><p>Вес брутто:' . $this->weight . ' кг.</p></small>
 		<small><p>Цена:' . $this->price . '</p></small>';
 		return $info;
 	}
-
-	public function getDiscountPrice(){
-		return $this->price;
-	}
-
-	public function getDeliveryPrice(){
-		return $this->delivery;
-	}
-
+	public function setDiscount()
+    { 
+    if ($this->weight <= 10) 
+      return $this->discount = 0;
+    }
+    public function getDiscountPrice() 
+    { 
+    if ($this->weight > 10)
+    {
+    	return parent::getDiscountPrice();
+    } 
+    else return $this->price;
+    }
 	public function getTotalPrice(){
 		return $this->getDeliveryPrice() + $this->getDiscountPrice();
 	}

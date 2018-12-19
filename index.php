@@ -2,16 +2,22 @@
 <html>
 <head>
 <title>Список товаров</title>
-</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+</head> 
 	<body>
 	<form  action="Basket/Basket.php" method="post">
-	<table border="2">
-	<th>Наименование</th>
+<table class="table table-sm" table-inverse">
+<thead>
+    <tr>
+    <th>Наименование</th>
     <th>Цена</th>
     <th>Размер скидки в %</th>
     <th>Цена со скидкой</th>
     <th>Доставка</th>
-    <th>Общая сумма</th>	
+    <th>Общая сумма</th>
+    </tr>
+</thead>	
 <?php
 require_once 'classes/autoloader.php';
 require_once 'classes/list.php';

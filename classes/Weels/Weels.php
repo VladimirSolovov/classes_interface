@@ -1,5 +1,5 @@
 <?php
-class Weels extends SuperProduct
+class Weels extends Product
 {
 	private $size;
 	public function __construct($title,$price,$size)
