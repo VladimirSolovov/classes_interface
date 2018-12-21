@@ -11,6 +11,11 @@ class Weels extends Product
 		public function getDiscount(){
 		return $this->discount;
 	}
+
+	public function getNameProduct(){
+		return $this->title;
+	}
+	
 	public function getInfoProduct()
 	{
 		$info = '<strong>' . $this->title . '</strong>
