@@ -11,7 +11,7 @@ session_start();
 <link rel="stylesheet" href="css/bootstrap.min.css" >
 </head> 
 	<body>
-	<form  action="classes/Basket/Basket.php" method="post">
+	<form  action="Basket.php" method="post">
     <table class="table table-sm" table-inverse">
         <thead>
             <tr>
@@ -24,7 +24,7 @@ session_start();
             </tr>
         </thead>	
         <? foreach ($prod as $k => $val) { 
-            $_SESSION['list_product'][$k] = serialize($val);
+            $_SESSION['listproduct'][$k] = serialize($val);
             ?>
             <tr>
                 <td><?= $val->getInfoProduct() ?></td>

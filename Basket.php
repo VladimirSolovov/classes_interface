@@ -1,16 +1,16 @@
 <?php
 session_start();
-require_once '../autoloader.php';
+require_once 'classes/autoloader.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Корзина</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../../css/bootstrap.min.css" >
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head> 
 	<body>
-	<form  action="Basket.php" method="post">
+	<form  action="result.php" method="post">
 		 <table class="table table-sm" table-inverse">
 		 <?if(empty($_POST['val'])){
 		echo "<h2>Корзина пуста!</h2>"
@@ -25,12 +25,12 @@ require_once '../autoloader.php';
             <th>#</th>
             <th>Наименование</th>
             <th>Стоимость доставки</th>
-            <th>Общая сумма</th>
+            <th>Стоимость</th>
             </tr>
         </thead>	
 <? 
 	 foreach ($_POST['val'] as $k => $key) {
-		$product = unserialize($_SESSION['list_product'][$key]); ?>
+		$product = unserialize($_SESSION['listproduct'][$key]); ?>
 		<tr>
 		<td><?= $k ?></td>
 		<td><?= $product->getNameProduct(); ?></td>
@@ -38,10 +38,12 @@ require_once '../autoloader.php';
 		<td><?= $product->getTotalPrice();?></td>
 		<td><input type="checkbox" name="delete[]" value="<?= $k ?>"></td>	
 		</tr>	
-	<? } ?>
-	<input type="submit" value="Delete selected">
-	<button type="button" class="btn btn-primary">Оформить заказ</button>
+	<? $a += $product->getTotalPrice();  }?>
 		</table>
+	<? echo 'Итого товаров на сумму: ' . $a ?><br>
+	<input type="submit" class="btn btn-primary" value="Удалить отмеченное">
+	<input type="hidden" value= <? $a ?>>
+	<a href="result.php"><button type="submit" class="btn btn-primary">Оформить заказ</button></a>
 	</form>
 </body>
 </html>
