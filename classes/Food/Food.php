@@ -12,6 +12,11 @@ class Food extends Product
 		$this->weight = $weight;
 		$this->setDiscount();
 	}
+
+	public function getNameProduct(){
+		return $this->title;
+	}
+
 	public function getInfoProduct()
 	{
 		$info = '<strong>' . $this->title . '</strong>
