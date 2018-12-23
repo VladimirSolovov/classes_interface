@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'classes/autoloader.php';
+require_once 'autoloader.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@ require_once 'classes/autoloader.php';
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head> 
 	<body>
-	<form  action="result.php" method="post">
+	<form  action="order.php" method="get">
 		 <table class="table table-sm" table-inverse">
 		 <?if(empty($_POST['val'])){
 		echo "<h2>Корзина пуста!</h2>"
@@ -38,12 +38,14 @@ require_once 'classes/autoloader.php';
 		<td><?= $product->getTotalPrice();?></td>
 		<td><input type="checkbox" name="delete[]" value="<?= $k ?>"></td>	
 		</tr>	
-	<? $a += $product->getTotalPrice();  }?>
+	<? $a += $product->getTotalPrice();  }
+	$totalprice = $a?>
 		</table>
-	<? echo 'Итого товаров на сумму: ' . $a ?><br>
+	<? echo 'Итого товаров на сумму: ' . $totalprice ?><br>
 	<input type="submit" class="btn btn-primary" value="Удалить отмеченное">
-	<input type="hidden" value= <? $a ?>>
-	<a href="result.php"><button type="submit" class="btn btn-primary">Оформить заказ</button></a>
+	<input type="hidden" name=price value= <?=$totalprice; ?>>
+	<a href="order.php"><button type="submit"  class="btn btn-primary">Оформить заказ</button></a>
 	</form>
 </body>
 </html>
+

@@ -1,7 +1,7 @@
 <?php
-require_once 'classes/autoloader.php';
-require_once 'classes/list.php';
 session_start();
+require_once 'autoloader.php';
+require_once 'classes/list.php';
 ?>
 <!DOCTYPE html>
 <html>
