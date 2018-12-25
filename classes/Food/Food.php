@@ -1,6 +1,6 @@
 <?php
 namespace classes\Food;
-use Product;
+use classes\Product;
 class Food extends Product
 {
 	protected $countryFrom;

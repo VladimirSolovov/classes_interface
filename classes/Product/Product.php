@@ -1,6 +1,6 @@
 <?php
 namespace classes\Product;
-use SuperProduct;
+use classes\SuperProduct;
 class Product extends SuperProduct
 {
 	protected $discount = 25;

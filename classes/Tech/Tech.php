@@ -1,6 +1,6 @@
 <?php
 namespace classes\Tech;
-use Product;
+use classes\Product;
 class Tech extends Product
 {
 	private $model;
