@@ -1,5 +1,5 @@
 <?php
-namespace classes\Product;
+namespace classes;
 use classes\SuperProduct;
 class Product extends SuperProduct
 {

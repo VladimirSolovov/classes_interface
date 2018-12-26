@@ -1,6 +1,6 @@
 <?php
 namespace classes\Weels;
-use classes\Product;
+use \classes\Product;
 class Weels extends Product
 {
 	private $size;

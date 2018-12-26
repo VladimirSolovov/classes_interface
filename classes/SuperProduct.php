@@ -1,6 +1,5 @@
 <?php
-namespace classes\SuperProduct;
-
+namespace classes;
 abstract class SuperProduct
 {
 	protected $title;

@@ -1,4 +1,5 @@
 <?php
+namespace classes\Order;
 class Order
 {
 	public $data;
